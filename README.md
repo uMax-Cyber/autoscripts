@@ -1,3 +1,5 @@
+#Telegram Autosender
+
 Install Python: Ensure that you have Python installed on your system. You can download the latest version of Python from the official website: https://www.python.org/downloads/
 
 1.Install the required packages: Open a command prompt or terminal and run the following commands to install the necessary packages:
