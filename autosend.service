@@ -1,0 +1,13 @@
+[Unit]
+Description=Telegram Autosend Python Script
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /opt/autosend/telegram-autosend.py # Replace with your path
+WorkingDirectory=/opt/autosend
+Restart=always
+User=<your_username>  # Replace with your username
+Group=<your_group>    # Replace with your group name (optional)
+
+[Install]
+WantedBy=default.target
