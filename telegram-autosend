@@ -1,0 +1,61 @@
+from datetime import datetime
+import schedule
+import time
+from telethon.sync import TelegramClient
+from telethon.tl.types import InputPeerUser
+from telethon.errors import SessionPasswordNeededError
+
+api_id = 'REPLACE WITH YOUR API ID'
+api_hash = 'REPLACE WITH YOUR API HASH'
+phone_number = 'REPLACE WITH YOUR NUMBER'
+
+# Create a Telegram client
+client = TelegramClient('session_name', api_id, api_hash)
+
+# Function to send stickers to a specific contact
+def send_stickers(user_id, sticker_paths):
+    try:
+        # Connect to the Telegram client
+        client.connect()
+
+        # Check if the user is already authorized, otherwise prompt for phone verification
+        if not client.is_user_authorized():
+            client.send_code_request(phone_number)
+            client.sign_in(phone_number, input('Enter the code: '))
+
+        # Get the user entity by the user ID
+        user = InputPeerUser(user_id, 0)
+
+        # Send the stickers to the user
+        for sticker_path in sticker_paths:
+            client.send_file(user, sticker_path, supports_streaming=False)
+        
+        print(f"Stickers sent to user ID {user_id} successfully!")
+    except SessionPasswordNeededError:
+        password = input("Enter your 2FA password: ")
+        client.start(phone_number, password)
+
+# Dictionary of user IDs and sticker paths
+contacts = {
+    64646464565: ['sticker1.webp', 'sticker2.webp'],
+    464646464565: ['sticker1.webp', 'sticker2.webp'],    
+} 
+# 64646464565 Replace with user profile ID
+#Put path to file instead sticker1.webp 
+
+
+# Function to send stickers to all contacts
+def send_stickers_to_all_contacts():
+    for user_id, sticker_paths in contacts.items():
+        send_stickers(user_id, sticker_paths)
+
+# Schedule the script to run every Friday at a specific time
+schedule.every().friday.at("6:00").do(send_stickers_to_all_contacts)
+
+# Infinite loop to continuously check the schedule
+while True:
+    schedule.run_pending()
+    time.sleep(1)
+
+# Disconnect the client
+client.disconnect()
