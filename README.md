@@ -25,6 +25,7 @@ Set your phone number: Replace '+654654654654' with your actual phone number in 
 
 Copy code
 python3 telegram_autosend.py
+
 7️⃣ Keep the script running: The script will run indefinitely, checking the schedule and sending stickers every Friday at 6:00 AM. You can close the command prompt or terminal if you want to stop the script.
 
 8️⃣ If you want to run this script as a service on startup, copy the file autosend.service to the folder /etc/systemd/system and edit it with nano!
