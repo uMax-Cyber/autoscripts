@@ -24,3 +24,5 @@ python3 telegram_autosend.py
 7.Keep the script running: The script will run indefinitely, checking the schedule and sending stickers every Friday at 6:00 AM. You can close the command prompt or terminal if you want to stop the script.
 
 8. If you wanna run this script as service in startup, copy the file autosend.service to folder /etc/systemd/system and edit with nano!
+
+Bonus: Amazing Unifi f**king script for joking with WiFi clients
