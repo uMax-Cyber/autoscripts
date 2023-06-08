@@ -1,4 +1,4 @@
-📢 #Telegram Autosender
+📢 Telegram Autosender
 
 🔧 Install Python: Ensure that you have Python installed on your system. You can download the latest version of Python from the official website: Python Downloads
 
