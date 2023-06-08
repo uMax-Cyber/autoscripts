@@ -6,14 +6,17 @@
 
 Copy code
 pip install -r requirements.txt
+
 2️⃣ Obtain API credentials: You need to obtain API credentials from the Telegram website. Follow these steps:
 
 Visit Telegram API
 Log in to your Telegram account.
 Under "API development tools," create a new application by providing a name, description, and website (can be any valid URL).
+
 3️⃣ Once created, you will see the "App api_id" and "App api_hash" values. Replace '2112213' with your api_id and '222223' with your api_hash in the code.
 
 Set your phone number: Replace '+654654654654' with your actual phone number in international format (including the country code) inside the code. (telegram-autosend.py)
+
 4️⃣ Add contacts and sticker paths: Modify the contacts dictionary to include the desired user IDs and corresponding sticker paths. User IDs can be obtained from the Telegram API or other methods.
 
 5️⃣ Save the Python file: Save the Python file with the modifications made.
